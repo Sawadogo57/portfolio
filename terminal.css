@@ -1098,3 +1098,11 @@ body.terminal-mode * {
         box-shadow: none !important;
     }
 }
+
+.terminal-binary-rain,
+.binary-char {
+    display: none !important;
+}
+.terminal-binary-rain {
+    opacity: 0 !important;
+}

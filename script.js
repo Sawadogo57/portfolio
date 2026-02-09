@@ -981,18 +981,51 @@ document.getElementById('terminalStyle').disabled = false;
 // Désactiver
 document.getElementById('terminalStyle').disabled = true;
 
-// Créer l'effet de pluie binaire
-const binaryRain = document.createElement('div');
-binaryRain.className = 'terminal-binary-rain';
-document.body.appendChild(binaryRain);
+let binaryRain = null;
 
-// Ajouter des caractères binaires
-for(let i = 0; i < 50; i++) {
-    const char = document.createElement('span');
-    char.className = 'binary-char';
-    char.textContent = Math.random() > 0.5 ? '1' : '0';
-    char.style.left = `${Math.random() * 100}%`;
-    char.style.animationDuration = `${Math.random() * 3 + 2}s`;
-    char.style.animationDelay = `${Math.random() * 5}s`;
-    binaryRain.appendChild(char);
+function startBinaryRain() {
+    if (binaryRain) return;
+
+    binaryRain = document.createElement('div');
+    binaryRain.className = 'terminal-binary-rain';
+    document.body.appendChild(binaryRain);
+
+    for (let i = 0; i < 50; i++) {
+        const char = document.createElement('span');
+        char.className = 'binary-char';
+        char.textContent = Math.random() > 0.5 ? '1' : '0';
+        char.style.left = `${Math.random() * 100}%`;
+        char.style.animationDuration = `${Math.random() * 3 + 2}s`;
+        char.style.animationDelay = `${Math.random() * 5}s`;
+        binaryRain.appendChild(char);
+    }
 }
+
+function stopBinaryRain() {
+    if (binaryRain) {
+        binaryRain.remove();
+        binaryRain = null;
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const emailLink = document.getElementById('email-link');
+
+    if (emailLink) {
+        // 'c2F3YWRvZ29hYnI1N0BnbWFpbC5jb20=' est le Base64 de sawadogoabr57@gmail.com
+        const encodedEmail = "c2F3YWRvZ29hYnI1N0BnbWFpbC5jb20=";
+        
+        emailLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Décodage au moment du clic
+            const decodedEmail = atob(encodedEmail);
+            
+            // Ouvre le client mail de l'utilisateur
+            window.location.href = "mailto:" + decodedEmail;
+            
+            // Optionnel : affiche l'email dans le texte du lien après le premier clic
+            this.textContent = decodedEmail;
+        });
+    }
+});

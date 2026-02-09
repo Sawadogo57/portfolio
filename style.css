@@ -1995,10 +1995,23 @@ body.terminal-mode .top-image {
     }
 }
 
+
 @media (max-width: 480px) {
     .top-image-wrapper {
         width: 150px;
         height: 150px;
         margin-bottom: 20px;
     }
+}
+.secure-mail {
+    color: var(--secondary-color, #4361ee);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border-bottom: 1px dashed var(--secondary-color);
+}
+
+.secure-mail:hover {
+    color: var(--accent-color, #64ffda);
+    border-bottom-style: solid;
 }
