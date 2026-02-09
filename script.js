@@ -65,6 +65,9 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Easter Egg
     initEasterEggs();
+    
+    // Email protection
+    initEmailProtection();
 });
 
 // ===== TYPED.JS INITIALIZATION =====
@@ -73,10 +76,10 @@ function initTypedJS() {
     
     const typed = new Typed(elements.typedElement, {
         strings: [
-            '<span class="cyber-text">Etudiant</span>',
+            '<span class="cyber-text">Étudiant</span>',
             '<span class="cyber-text">Développeur Sécurité</span>',
-            
-            
+            '<span class="cyber-text">Pentester Éthique</span>',
+            '<span class="cyber-text">Cybersécurité</span>'
         ],
         typeSpeed: 60,
         backSpeed: 40,
@@ -184,7 +187,7 @@ function enableTerminalMode() {
     }
     
     // Play ambient sound
-    if (CONFIG.terminal.sounds) {
+    if (CONFIG.terminal.sounds && sounds.terminalAmbient) {
         sounds.terminalAmbient.loop = true;
         sounds.terminalAmbient.volume = 0.2;
         sounds.terminalAmbient.play().catch(e => console.log('Audio error:', e));
@@ -227,7 +230,7 @@ function disableTerminalMode() {
     }
     
     // Stop ambient sound
-    if (CONFIG.terminal.sounds) {
+    if (CONFIG.terminal.sounds && sounds.terminalAmbient) {
         sounds.terminalAmbient.pause();
         sounds.terminalAmbient.currentTime = 0;
     }
@@ -853,13 +856,39 @@ function addMatrixEffect() {
     }, 10000);
 }
 
+// ===== EMAIL PROTECTION =====
+function initEmailProtection() {
+    const emailLink = document.querySelector('.secure-mail');
+    
+    if (emailLink) {
+        // Base64 encoded email
+        const encodedEmail = "c2F3YWRvZ29hYnI1N0BnbWFpbC5jb20=";
+        
+        emailLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Decode email
+            const decodedEmail = atob(encodedEmail);
+            
+            // Open mail client
+            window.location.href = "mailto:" + decodedEmail;
+            
+            // Update link text after first click
+            this.textContent = decodedEmail;
+        });
+        
+        // Set initial text (optional, can be set in HTML)
+        emailLink.textContent = "sawadogoabr57@gmail.com";
+    }
+}
+
 // ===== DOWNLOAD CV =====
 if (elements.downloadCV) {
     elements.downloadCV.addEventListener('click', () => {
         // Create download link
         const link = document.createElement('a');
         link.href = '#';
-        link.download = 'sawadogo abdoul.pdf';
+        link.download = 'sawadogo_abdoul_cv.pdf';
         
         // Create blob with CV content (simulated)
         const cvContent = `
@@ -930,10 +959,73 @@ if (elements.newsletterForm) {
             return;
         }
         
+        // Email validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            showNotification('Adresse email invalide', 'warning');
+            return;
+        }
+        
         // Simulate subscription
         showNotification('Merci pour votre inscription!', 'success');
         e.target.reset();
     });
+}
+
+// ===== BINARY RAIN EFFECT =====
+let binaryRain = null;
+
+function startBinaryRain() {
+    if (binaryRain) return;
+
+    binaryRain = document.createElement('div');
+    binaryRain.className = 'terminal-binary-rain';
+    binaryRain.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 9998;
+        overflow: hidden;
+    `;
+    document.body.appendChild(binaryRain);
+
+    for (let i = 0; i < 50; i++) {
+        const char = document.createElement('span');
+        char.className = 'binary-char';
+        char.textContent = Math.random() > 0.5 ? '1' : '0';
+        char.style.cssText = `
+            position: absolute;
+            color: #00ff41;
+            font-family: monospace;
+            font-size: 14px;
+            opacity: 0.8;
+            left: ${Math.random() * 100}%;
+            top: -20px;
+            animation: binary-fall ${Math.random() * 3 + 2}s linear infinite;
+            animation-delay: ${Math.random() * 5}s;
+        `;
+        binaryRain.appendChild(char);
+    }
+    
+    // Add animation CSS
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes binary-fall {
+            0% { top: -20px; opacity: 1; }
+            100% { top: 100%; opacity: 0; }
+        }
+    `;
+    document.head.appendChild(style);
+}
+
+function stopBinaryRain() {
+    if (binaryRain) {
+        binaryRain.remove();
+        binaryRain = null;
+    }
 }
 
 // ===== WINDOW RESIZE HANDLER =====
@@ -969,63 +1061,11 @@ if (typeof window !== 'undefined') {
             toggleTerminalMode();
         },
         showNotification,
-        playSound
+        playSound,
+        startBinaryRain,
+        stopBinaryRain
     };
 }
 
 console.log('%c[✓] System Initialization Complete', 'color: #2ed573; font-weight: bold;');
 console.log('%c> Ready for incoming connections...', 'color: #64ffda;');
-// Activer
-document.getElementById('terminalStyle').disabled = false;
-
-// Désactiver
-document.getElementById('terminalStyle').disabled = true;
-
-let binaryRain = null;
-
-function startBinaryRain() {
-    if (binaryRain) return;
-
-    binaryRain = document.createElement('div');
-    binaryRain.className = 'terminal-binary-rain';
-    document.body.appendChild(binaryRain);
-
-    for (let i = 0; i < 50; i++) {
-        const char = document.createElement('span');
-        char.className = 'binary-char';
-        char.textContent = Math.random() > 0.5 ? '1' : '0';
-        char.style.left = `${Math.random() * 100}%`;
-        char.style.animationDuration = `${Math.random() * 3 + 2}s`;
-        char.style.animationDelay = `${Math.random() * 5}s`;
-        binaryRain.appendChild(char);
-    }
-}
-
-function stopBinaryRain() {
-    if (binaryRain) {
-        binaryRain.remove();
-        binaryRain = null;
-    }
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-    const emailLink = document.getElementById('email-link');
-
-    if (emailLink) {
-        // 'c2F3YWRvZ29hYnI1N0BnbWFpbC5jb20=' est le Base64 de sawadogoabr57@gmail.com
-        const encodedEmail = "c2F3YWRvZ29hYnI1N0BnbWFpbC5jb20=";
-        
-        emailLink.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            // Décodage au moment du clic
-            const decodedEmail = atob(encodedEmail);
-            
-            // Ouvre le client mail de l'utilisateur
-            window.location.href = "mailto:" + decodedEmail;
-            
-            // Optionnel : affiche l'email dans le texte du lien après le premier clic
-            this.textContent = decodedEmail;
-        });
-    }
-});
