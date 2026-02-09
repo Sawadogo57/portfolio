@@ -77,9 +77,8 @@ function initTypedJS() {
     const typed = new Typed(elements.typedElement, {
         strings: [
             '<span class="cyber-text">Étudiant</span>',
-            '<span class="cyber-text">Développeur Sécurité</span>',
-            '<span class="cyber-text">Pentester Éthique</span>',
-            '<span class="cyber-text">Cybersécurité</span>'
+            '<span class="cyber-text">Développeur </span>',
+            
         ],
         typeSpeed: 60,
         backSpeed: 40,
