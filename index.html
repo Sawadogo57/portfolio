@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio de Abdoul, étudiant en Master I en Sécurité informatique et Cybersécurité">
+    <meta name="keywords" content="cybersécurité, pentesting, sécurité informatique, développement, réseau">
+    <meta name="author" content="Abdoul">
+    <title> Portfolio </title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Typed.js CDN -->
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+    
+    <!-- CSS Principal -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- CSS pour le mode Terminal -->
+    <link rel="stylesheet" href="terminal.css" id="terminalStyle" disabled>
+</head>
+<body>
+    <!-- Navigation Principale -->
+    <nav class="entete">
+        <div class="nav-container">
+            <!-- Logo -->
+            <div class="logo" data-text="Abdoul.">
+                
+            </div>
+            
+            <!-- Menu Hamburger pour Mobile -->
+            <div class="menu-toggle" id="menuToggle" aria-label="Menu">
+                <i class="fas fa-bars"></i>
+            </div>
+            
+            <!-- Menu Principal -->
+            <ul class="menu" id="mainMenu">
+                <li><a href="#accueil" class="nav-link"><i class="fas fa-home"></i> Accueil</a></li>
+                <li><a href="#apropos" class="nav-link"><i class="fas fa-user"></i> À Propos</a></li>
+                <li><a href="#competences" class="nav-link"><i class="fas fa-code"></i> Compétences</a></li>
+                <li><a href="#projets" class="nav-link"><i class="fas fa-project-diagram"></i> Projets</a></li>
+                <li><a href="#blog" class="nav-link"><i class="fas fa-blog"></i> Blog</a></li>
+                <li><a href="#contact" class="nav-link"><i class="fas fa-envelope"></i> Contact</a></li>
+            </ul>
+            
+           
+           
+            
+            <!-- Switch Mode Terminal -->
+            <div class="mode-toggle">
+                <input type="checkbox" id="terminalToggle" class="toggle-checkbox">
+                <label for="terminalToggle" class="toggle-label" title="Mode Terminal">
+                    <i class="fas fa-terminal"></i>
+                    <span class="toggle-text">Terminal</span>
+                </label>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Section Accueil -->
+    <section class="corps" id="accueil">
+        <div class="hero-container">
+            <!-- Partie Gauche : Texte et Actions -->
+            <div class="Cgauche">
+                <span class="textb" data-text="> Bonjour, je suis">Salut, je suis</span>
+                <h1 class="typing-title">
+                    <span class="name">Abdoul Rahim Sawadogo</span>
+                    <span id="textD" class="typed-text"></span>
+                </h1>
+                <p class="soustitre">Étudiant en Master I Cybersécurité & Développeur Sécurité</p>
+                <p class="description">
+                    Passionné par la sécurité des systèmes d'information, le pentesting éthique et le développement d'applications sécurisées.
+                    Je transforme des menaces complexes en solutions robustes.
+                </p>
+                
+                <!-- Actions Principales -->
+                <div class="btn-group">
+                    <button class="btn-primary" id="downloadCV">
+                        <i class="fas fa-download"></i> Télécharger CV
+                    </button>
+                    <button class="btn-secondary" id="contactBtn">
+                        <i class="fas fa-envelope"></i> Me Contacter
+                    </button>
+                    <button class="btn-tertiary" id="viewProjects">
+                        <i class="fas fa-eye"></i> Voir Projets
+                    </button>
+                </div>
+                
+                <!-- Statistiques -->
+                <div class="stats">
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="1">0+</span>
+                        <span class="stat-label">Années expérience</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="5">0+</span>
+                        <span class="stat-label">Projets réalisés</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="2">0+</span>
+                        <span class="stat-label">Certifications</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="5">0+</span>
+                        <span class="stat-label">CTF Résolus</span>
+                    </div>
+                </div>
+                
+                <!-- Badges Compétences Rapides -->
+                <div class="quick-skills">
+                    <span class="skill-tag"><i class="fas fa-shield-alt"></i> Pentesting</span>
+                    <span class="skill-tag"><i class="fas fa-network-wired"></i> Réseaux</span>
+                    <span class="skill-tag"><i class="fab fa-python"></i> Python</span>
+                    <span class="skill-tag"><i class="fas fa-lock"></i> Cryptographie</span>
+                </div>
+            </div>
+            
+            <!-- Partie Droite : Image et Badges -->
+            <div class="Cdroite">
+
+                <div class="top-image-wrapper">
+                <img src="images/im21.png" 
+                alt="Badge ou illustration supplémentaire" 
+                class="top-image"
+                loading="lazy">
+                 <div class="top-image-overlay">
+                <div class="top-scan-effect"></div>
+             </div>
+            </div>
+                <div class="hero-image-container">
+                    <!-- Image de Profil -->
+                    <div class="image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                             alt="Photo de profil Abdoul - Expert Cybersécurité" 
+                             class="profile-img"
+                             loading="lazy">
+                        <div class="image-overlay">
+                            <div class="scan-effect"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Badges Compétences Flottants -->
+                    <div class="skill-badge security">
+                        <i class="fas fa-user-secret"></i>
+                        <span>Programmation</span>
+                    </div>
+                    <div class="skill-badge dev">
+                        <i class="fas fa-code"></i>
+                        <span>sécurité</span>
+                    </div>
+                    <div class="skill-badge network">
+                        <i class="fas fa-server"></i>
+                        <span>Réseaux</span>
+                    </div>
+                    
+                    <!-- Carte CTF -->
+                    <div class="ctf-card">
+                        <div class="ctf-header">
+                            <i class="fas fa-flag"></i>
+                            <h4>CTF Progress</h4>
+                        </div>
+                        <div class="ctf-progress">
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 50%"></div>
+                            </div>
+                            <span class="progress-text">50% Machines HackTheBox</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Indicateur de Scroll -->
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+            <span></span>
+        </div>
+    </section>
+
+    <!-- Section À Propos -->
+    <section class="apropos" id="apropos">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-subtitle">À PROPOS DE MOI</span>
+                <h2 class="section-title">Architecte de la Sécurité Numérique</h2>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <div class="about-intro">
+                        <h3>De la curiosité à l'expertise</h3>
+                        <p>Passionné par la technologie depuis mon plus jeune âge, j'ai transformé ma fascination pour les systèmes informatiques en une carrière dédiée à leur protection. Mon parcours académique en <strong>Master Cybersécurité</strong> m'a doté des compétences nécessaires pour comprendre et contrer les menaces modernes.</p>
+                    </div>
+                    
+                    <div class="timeline">
+                      <div class="timeline-item current">
+    <div class="timeline-date">2025 – 2026</div>
+    <div class="timeline-content">
+        <h4>Master 1 –  EN INFORMATIQUE-SECURITE
+INFORMATIQUE ET CYBERSECURITE</h4>
+        <p>
+            Université Joseph Ki-Zerbo <br>
+            <span class="status">En cours</span>
+        </p>
+    </div>
+</div>
+
+    <div class="timeline-item">
+        <div class="timeline-date">2024 – 2025</div>
+        <div class="timeline-content">
+            <h4>Licence 3 – Informatique</h4>
+            <p>Université Thomas Sankara</p>
+        </div>
+    </div>
+
+    <div class="timeline-item">
+        <div class="timeline-date">2023 – 2024</div>
+        <div class="timeline-content">
+            <h4>Licence 2 – MPI / Informatique</h4>
+            <p>Université Thomas Sankara</p>
+        </div>
+    </div>
+
+    <div class="timeline-item">
+        <div class="timeline-date">2022 – 2023</div>
+        <div class="timeline-content">
+            <h4>Licence 1 – MPCI</h4>
+            <p>Université Thomas Sankara</p>
+        </div>
+    </div>
+
+    <div class="timeline-item">
+        <div class="timeline-date">2021 – 2022</div>
+        <div class="timeline-content">
+            <h4>Baccalauréat série D</h4>
+            <p>Lycée Moderne de Zagné</p>
+        </div>
+    </div>
+
+</div>
+                    
+                    <div class="philosophy">
+                        <h3><i class="fas fa-brain"></i> Philosophie de Sécurité</h3>
+                        <p>"La meilleure défense est une bonne compréhension de l'attaque. Je crois en une approche proactive où chaque système doit être conçu en considérant les pires scénarios."</p>
+                    </div>
+                </div>
+                
+                <div class="about-terminal">
+                    <div class="terminal-box">
+                        <div class="terminal-header">
+                            <div class="terminal-dots">
+                                <span class="dot red"></span>
+                                <span class="dot yellow"></span>
+                                <span class="dot green"></span>
+                            </div>
+                            <span class="terminal-title">bash -- 80×24</span>
+                        </div>
+                        <div class="terminal-body" id="liveTerminal">
+                            <div class="terminal-line">
+                                <span class="prompt">root@abdoul:~$</span> whoami
+                            </div>
+                            <div class="terminal-line">
+                                <span class="output">abdoul-cyber</span>
+                            </div>
+                            <div class="terminal-line">
+                                <span class="prompt">root@abdoul:~$</span> cat skills.txt
+                            </div>
+                            <div class="terminal-line">
+                                <span class="output">[Pentesting, Web Security, Network Analysis, Python, Cryptography]</span>
+                            </div>
+                            <div class="terminal-line">
+                                <span class="prompt">root@abdoul:~$</span> <span class="cursor">█</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Compétences -->
+    <section class="competences" id="competences">
+    <div class="section-container">
+        <div class="section-header">
+            <span class="section-subtitle">COMPÉTENCES</span>
+            <h2 class="section-title">Domaines de Compétences</h2>
+        </div>
+
+        <div class="skills-container">
+
+            <!-- Langages de programmation -->
+            <div class="skill-category">
+                <div class="category-header">
+                    <i class="fas fa-laptop-code category-icon dev"></i>
+                    <h3>Langages de Programmation</h3>
+                </div>
+                <div class="skills-list">
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">C</span>
+                            <span class="skill-level">Bonnes notions</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 65%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">Java</span>
+                            <span class="skill-level">Intermédiaire</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 75%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">Python</span>
+                            <span class="skill-level">Intermédiaire</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 70%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">JavaScript</span>
+                            <span class="skill-level">Intermédiaire</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 70%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Développement Web -->
+            <div class="skill-category">
+    <div class="category-header">
+        <i class="fas fa-globe category-icon offensive"></i>
+        <h3>Développement Web & Backend</h3>
+    </div>
+    <div class="skills-list">
+        <div class="skill-item">
+            <div class="skill-info">
+                <span class="skill-name">HTML / CSS</span>
+                <span class="skill-level">Intermédiaire</span>
+            </div>
+            <div class="skill-bar">
+                <div class="skill-progress" style="width: 75%"></div>
+            </div>
+        </div>
+
+        <div class="skill-item">
+            <div class="skill-info">
+                <span class="skill-name">PHP (Sécurité Backend)</span>
+                <span class="skill-level">Intermédiaire</span>
+            </div>
+            <div class="skill-bar">
+                <div class="skill-progress" style="width: 70%"></div>
+            </div>
+        </div>
+
+        <div class="skill-item">
+            <div class="skill-info">
+                <span class="skill-name">Laravel Framework</span>
+                <span class="skill-level">Intermédiaire</span>
+            </div>
+            <div class="skill-bar">
+                <div class="skill-progress" style="width: 75%"></div>
+            </div>
+        </div>
+
+        <div class="skill-item">
+            <div class="skill-info">
+                <span class="skill-name">Bootstrap</span>
+                <span class="skill-level">Intermédiaire</span>
+            </div>
+            <div class="skill-bar">
+                <div class="skill-progress" style="width: 70%"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+            <!-- Réseau & Sécurité -->
+            <div class="skill-category">
+                <div class="category-header">
+                    <i class="fas fa-network-wired category-icon defensive"></i>
+                    <h3>Réseau & Sécurité Informatique</h3>
+                </div>
+                <div class="skills-list">
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">Notions Réseau (LAN, WAN, TCP/IP)</span>
+                            <span class="skill-level">Bonnes notions</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 70%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">Sécurité Informatique</span>
+                            <span class="skill-level">Notions</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 60%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bases de données & Mobile -->
+            <div class="skill-category">
+                <div class="category-header">
+                    <i class="fas fa-database category-icon dev"></i>
+                    <h3>Bases de Données & Mobile</h3>
+                </div>
+                <div class="skills-list">
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">SQLite / MySQL</span>
+                            <span class="skill-level">Intermédiaire</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 70%"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">Développement Mobile</span>
+                            <span class="skill-level">Notions</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 55%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- En cours d’apprentissage -->
+<div class="learning-section">
+    <h3 class="learning-title">En cours d’apprentissage</h3>
+    <p class="learning-text">
+        Développement mobile • Frameworks JavaScript modernes • Sécurité applicative avancée
+    </p>
+</div>
+
+        </div>
+    </div>
+</section>
+
+    <!-- Section Projets -->
+    <section class="projets" id="projets">
+    <div class="section-container">
+        <div class="section-header">
+            <span class="section-subtitle">PORTFOLIO</span>
+            <h2 class="section-title">Projets & Réalisations</h2>
+        </div>
+
+        <div class="projects-grid">
+
+            <!-- Projet 1 : Gestion de Bibliothèque -->
+            <div class="project-card" data-category="python">
+                <div class="project-image">
+                    <div class="project-badge">Python</div>
+                    <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=800&q=80"
+                         alt="Application de gestion de bibliothèque" loading="lazy">
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Gestion de Bibliothèque</h3>
+                    <p class="project-description">
+                        Développement d’une application web et desktop en Python pour la gestion d’une bibliothèque :
+                        gestion des livres, des utilisateurs, des emprunts et retours.
+                        Projet réalisé en équipe.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Tkinter / Web</span>
+                        <span class="tech-tag">Base de données</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link">
+                            <i class="fab fa-github"></i> Code source
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projet 2 : Applications Java -->
+            <div class="project-card" data-category="java">
+                <div class="project-image">
+                    <div class="project-badge">Java</div>
+                    <img src="https://images.unsplash.com/photo-1581090700227-1e37b190418e?auto=format&fit=crop&w=800&q=80"
+                         alt="Applications Java de gestion" loading="lazy">
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Applications de Gestion Java</h3>
+                    <p class="project-description">
+                        Réalisation de deux applications Java :
+                        gestion de stock d’un magasin et gestion d’un hôtel
+                        (clients, chambres, réservations).
+                        Travail collaboratif orienté programmation orientée objet.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Java</span>
+                        <span class="tech-tag">POO</span>
+                        <span class="tech-tag">Swing / JavaFX</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link">
+                            <i class="fab fa-github"></i> Code source
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projet 3 : Projets Web -->
+            <div class="project-card" data-category="web">
+                <div class="project-image">
+                    <div class="project-badge">Web</div>
+                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80"
+                         alt="Projets web étudiants" loading="lazy">
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Projets Web</h3>
+                    <p class="project-description">
+                        Création d’un site web statique valorisant la culture d’une région du Burkina Faso,
+                        ainsi qu’un blog personnel destiné aux étudiants pour le partage de ressources académiques.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">HTML</span>
+                        <span class="tech-tag">CSS</span>
+                        <span class="tech-tag">JavaScript</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link">
+                            <i class="fas fa-external-link-alt"></i> Voir le site
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projet 4 : Réseau & Stage -->
+            <div class="project-card" data-category="reseau">
+                <div class="project-image">
+                    <div class="project-badge">Réseau / Stage</div>
+                    <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=800&q=80"
+                         alt="Projet réseau et application de gestion des dons de sang" loading="lazy">
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Réseau & Application Santé</h3>
+                    <p class="project-description">
+                        Configuration d’un réseau simulé sous Cisco Packet Tracer reliant
+                        Ouagadougou et Bobo-Dioulasso.
+                        Conception et réalisation d’une application web et mobile
+                        pour la gestion des demandes et dons de sang au sein de RESUSOFT (stage).
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Cisco Packet Tracer</span>
+                        <span class="tech-tag">Réseaux</span>
+                        <span class="tech-tag">Web & Mobile</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link">
+                            <i class="fas fa-file-alt"></i> Rapport
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="projects-more">
+            <a href="#" class="btn-secondary">
+                <i class="fas fa-plus"></i> Voir tous les projets
+            </a>
+        </div>
+    </div>
+</section>
+
+    <!-- Section Blog -->
+    <section class="blog" id="blog">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-subtitle">VEILLE TECHNOLOGIQUE</span>
+                <h2 class="section-title">Articles & Réflexions</h2>
+            </div>
+            
+            <div class="blog-grid">
+                <!-- Article 1 -->
+                <article class="blog-card">
+                    <div class="blog-meta">
+                        <span class="blog-date"><i class="far fa-calendar"></i> 15 Fév 2026</span>
+                        <span class="blog-category">Sécurité Web</span>
+                    </div>
+                    <h3 class="blog-title">L'évolution des attaques XSS en 2026</h3>
+                    <p class="blog-excerpt">
+                        Analyse des nouvelles techniques d'injection cross-site scripting et des méthodes de protection avancées...
+                    </p>
+                    <div class="blog-footer">
+                        <a href="#" class="read-more">
+                            Lire l'article <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <span class="read-time"><i class="far fa-clock"></i> 5 min</span>
+                    </div>
+                </article>
+                
+                <!-- Article 2 -->
+                <article class="blog-card">
+                    <div class="blog-meta">
+                        <span class="blog-date"><i class="far fa-calendar"></i> 10 Fév 2026</span>
+                        <span class="blog-category">Pentesting</span>
+                    </div>
+                    <h3 class="blog-title">Guide du débutant en tests d'intrusion</h3>
+                    <p class="blog-excerpt">
+                        Par où commencer dans le pentesting ? Outils, méthodologie et ressources pour bien démarrer...
+                    </p>
+                    <div class="blog-footer">
+                        <a href="#" class="read-more">
+                            Lire l'article <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <span class="read-time"><i class="far fa-clock"></i> 8 min</span>
+                    </div>
+                </article>
+                
+                <!-- Article 3 -->
+                <article class="blog-card">
+                    <div class="blog-meta">
+                        <span class="blog-date"><i class="far fa-calendar"></i> 5 Fév 2026</span>
+                        <span class="blog-category">Cryptographie</span>
+                    </div>
+                    <h3 class="blog-title">Introduction à la cryptographie post-quantique</h3>
+                    <p class="blog-excerpt">
+                        Comment l'avènement des ordinateurs quantiques va révolutionner (et menacer) la cryptographie actuelle...
+                    </p>
+                    <div class="blog-footer">
+                        <a href="#" class="read-more">
+                            Lire l'article <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <span class="read-time"><i class="far fa-clock"></i> 6 min</span>
+                    </div>
+                </article>
+            </div>
+            
+            <!-- Newsletter -->
+            <div class="newsletter">
+                <h3 class="newsletter-title">Restez informé</h3>
+                <p class="newsletter-text">Recevez mes derniers articles sur la cybersécurité directement dans votre boîte mail.</p>
+                <form class="newsletter-form" id="newsletterForm">
+                    <input type="email" placeholder="Votre email" required>
+                    <button type="submit" class="btn-primary">
+                        <i class="fas fa-paper-plane"></i> S'abonner
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Contact -->
+    <section class="contact" id="contact">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-subtitle">CONTACT</span>
+                <h2 class="section-title">Travaillons ensemble</h2>
+            </div>
+            
+            <div class="contact-content">
+                <!-- Informations de contact -->
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Email</h4>
+                            <a href="mailto:sawadogoabr57@gmail.com">sawadogoabr57@gmail.com</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Téléphone</h4>
+                            <a href="tel:+22657057504">+22657057504</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Localisation</h4>
+                            <p>Ouagadougou, Burkina Faso</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Disponibilité</h4>
+                            <p>Freelance & Projets ponctuels</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Formulaire de contact -->
+                <div class="contact-form-container">
+                    <form class="contact-form" id="contactForm">
+                        <!-- Honeypot pour les bots -->
+                        <input type="text" name="honeypot" style="display: none;" tabindex="-1" autocomplete="off">
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Nom complet *</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Sujet *</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" rows="6" required></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <div class="form-check">
+                                <input type="checkbox" id="privacy" name="privacy" required>
+                                <label for="privacy">
+                                    J'accepte la politique de confidentialité
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="btn-primary submit-btn">
+                            <i class="fas fa-paper-plane"></i> Envoyer le message
+                        </button>
+                        
+                        <div class="form-status" id="formStatus"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <!-- Logo Footer -->
+            <div class="footer-logo">
+                <span>A</span>bdoul<b>.</b>
+                <p class="footer-tagline">Architecte de la sécurité numérique</p>
+            </div>
+            
+            <!-- Liens rapides -->
+            <div class="footer-links">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="#accueil">Accueil</a></li>
+                    <li><a href="#apropos">À Propos</a></li>
+                    <li><a href="#competences">Compétences</a></li>
+                    <li><a href="#projets">Projets</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            
+            <!-- Réseaux sociaux Footer -->
+            <div class="footer-social">
+    <h4>Réseaux sociaux</h4>
+
+    <div class="reseaux">
+        <a href="https://github.com/Sawadogo57" target="_blank" rel="noopener noreferrer"
+           aria-label="GitHub" class="social-link" data-tooltip="GitHub">
+            <i class="fab fa-github"></i>
+        </a>
+        <a href="https://linkedin.com/in/abdoul-rahim-sawadogo-0a3b94387" target="_blank" rel="noopener noreferrer"
+           aria-label="LinkedIn" class="social-link" data-tooltip="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a href="https://twitter.com/abdoulrahim57" target="_blank" rel="noopener noreferrer"
+           aria-label="Twitter" class="social-link" data-tooltip="Twitter">
+            <i class="fab fa-twitter"></i>
+        </a>
+        <a href="https://tryhackme.com/p/sawadogoabdoulrahim585" target="_blank" rel="noopener noreferrer"
+           aria-label="TryHackMe" class="social-link" data-tooltip="TryHackMe">
+            <i class="fas fa-shield-alt"></i>
+        </a>
+        <a href="https://profile.hackthebox.com/profile/019c3f5b-18d2-71b2-9786-0cb12fbcf3a3" target="_blank" rel="noopener noreferrer"
+           aria-label="HackTheBox" class="social-link" data-tooltip="HackTheBox">
+            <i class="fas fa-cube"></i>
+        </a>
+        <a href="https://facebook.com/profile.php?id=61580958866956&locale=fr_FR" target="_blank" rel="noopener noreferrer"
+            aria-label="Facebook" class="social-link" data-tooltip="Facebook">
+        <i class="fab fa-facebook-f"></i>
+</a>
+    </div>
+</div>
+
+            
+            <!-- Newsletter Footer -->
+            <div class="footer-newsletter">
+                <h4>Newsletter</h4>
+                <p>Recevez des insights sur la cybersécurité</p>
+                <form class="footer-form">
+                    <input type="email" placeholder="Votre email">
+                    <button type="submit"><i class="fas fa-arrow-right"></i></button>
+                </form>
+            </div>
+        </div>
+        
+        <!-- Copyright -->
+        <div class="footer-bottom">
+            <p>&copy; 2026 Abdoul. Tous droits réservés.</p>
+            <p>Développé avec <i class="fas fa-heart"></i> et <i class="fas fa-coffee"></i></p>
+            <p class="footer-security">
+                <i class="fas fa-lock"></i> 
+                <span id="securityStatus">Connexion sécurisée</span>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+
+    <script>
+const items = document.querySelectorAll('.timeline-item');
+
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+        }
+    });
+}, { threshold: 0.2 });
+
+items.forEach(item => observer.observe(item));
+</script>
+    
+    <!-- Sons (optionnel) -->
+    <audio id="keySound" src="https://assets.mixkit.co/sfx/preview/mixkit-select-click-1109.mp3" preload="auto"></audio>
+    <audio id="terminalSound" src="https://assets.mixkit.co/sfx/preview/mixkit-computer-terminal-ambient-156.mp3" preload="auto"></audio>
+</body>
+</html>

@@ -1,0 +1,1100 @@
+/* ============================================
+   TERMINAL MODE STYLES - PORTFOLIO CYBERSÉCURITÉ
+   ============================================ */
+
+/* ===== VARIABLES TERMINAL ===== */
+:root {
+    /* Couleurs Matrix/Style Terminal */
+    --terminal-bg: #0a0a0a;
+    --terminal-text: #00ff41;
+    --terminal-text-alt: #ffffff;
+    --terminal-accent: #ff003c;
+    --terminal-blue: #0088ff;
+    --terminal-yellow: #ffff00;
+    --terminal-cyan: #00ffff;
+    
+    /* Effets */
+    --terminal-glow: 0 0 10px currentColor;
+    --terminal-glow-intense: 0 0 20px currentColor;
+    --terminal-border: 2px solid currentColor;
+    
+    /* Animation */
+    --terminal-blink-speed: 1s;
+    --terminal-scan-speed: 3s;
+    --terminal-float-speed: 3s;
+}
+
+/* ===== EFFET MATRIX DE BASE ===== */
+.terminal-bg-effect {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        repeating-linear-gradient(
+            0deg,
+            rgba(0, 255, 65, 0.03) 0px,
+            rgba(0, 255, 65, 0.03) 1px,
+            transparent 1px,
+            transparent 2px
+        );
+    pointer-events: none;
+    z-index: 9997;
+}
+
+/* ===== NOISE EFFECT ===== */
+.terminal-noise {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iNDAwIj48ZmlsdGVyIGlkPSJhIiB4PSIwIiB5PSIwIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iLjc0IiBzdGl0Y2hUaWxlcz0ic3RpdGNoIi8+PGZlQ29sb3JNYXRyaXggdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iNDAwIiBmaWx0ZXI9InVybCgjYSkiIG9wYWNpdHk9Ii4wMyIvPjwvc3ZnPg==');
+    pointer-events: none;
+    z-index: 9998;
+    opacity: 0.05;
+}
+
+/* ===== BODY TERMINAL MODE ===== */
+body.terminal-mode {
+    /* Couleurs de base */
+    --primary-color: var(--terminal-bg);
+    --secondary-color: var(--terminal-text);
+    --accent-color: var(--terminal-accent);
+    --text-color: var(--terminal-text);
+    --text-light: var(--terminal-text-alt);
+    --dark-bg: #000000;
+    
+    background-color: var(--primary-color) !important;
+    color: var(--text-color) !important;
+    font-family: 'Courier New', 'Fira Code', 'Roboto Mono', 'Consolas', monospace !important;
+    transition: all 0.5s ease;
+}
+
+/* ===== SCAN LINE EFFECT ===== */
+body.terminal-mode::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        repeating-linear-gradient(
+            0deg,
+            rgba(0, 255, 65, 0.05) 0px,
+            rgba(0, 255, 65, 0.05) 1px,
+            transparent 1px,
+            transparent 2px
+        );
+    pointer-events: none;
+    z-index: 9997;
+    animation: terminalScan var(--terminal-scan-speed) linear infinite;
+}
+
+@keyframes terminalScan {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(100px); }
+}
+
+/* ===== SCAN LINE VERTICALE (OPTIONNEL) ===== */
+.terminal-scan-line {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, 
+        transparent, 
+        var(--terminal-text), 
+        transparent);
+    z-index: 9999;
+    pointer-events: none;
+    animation: scanMove var(--terminal-scan-speed) linear infinite;
+}
+
+@keyframes scanMove {
+    0% { top: 0; }
+    100% { top: 100%; }
+}
+
+/* ===== NAVIGATION TERMINAL ===== */
+body.terminal-mode .entete {
+    background-color: rgba(0, 0, 0, 0.95) !important;
+    border-bottom: 2px solid var(--terminal-text) !important;
+    box-shadow: 0 0 20px rgba(0, 255, 65, 0.3);
+}
+
+body.terminal-mode .logo {
+    color: var(--terminal-text) !important;
+    text-shadow: var(--terminal-glow) !important;
+}
+
+body.terminal-mode .logo span {
+    color: var(--terminal-accent) !important;
+    text-shadow: var(--terminal-glow-intense) !important;
+}
+
+body.terminal-mode .logo b {
+    color: var(--terminal-yellow) !important;
+}
+
+body.terminal-mode .logo::after {
+    background-color: var(--terminal-accent) !important;
+}
+
+/* Menu items */
+body.terminal-mode .menu li a {
+    color: var(--terminal-text) !important;
+    text-shadow: 0 0 5px currentColor;
+}
+
+body.terminal-mode .menu li a::after {
+    background-color: var(--terminal-accent) !important;
+    box-shadow: var(--terminal-glow);
+}
+
+body.terminal-mode .menu li a i {
+    color: var(--terminal-cyan) !important;
+}
+
+body.terminal-mode .menu li a:hover {
+    color: var(--terminal-accent) !important;
+    text-shadow: var(--terminal-glow-intense);
+}
+
+/* Réseaux sociaux */
+body.terminal-mode .social-link {
+    background-color: rgba(0, 255, 65, 0.1) !important;
+    border: 1px solid var(--terminal-text) !important;
+    color: var(--terminal-text) !important;
+    text-shadow: var(--terminal-glow);
+}
+
+body.terminal-mode .social-link:hover {
+    background-color: var(--terminal-text) !important;
+    color: var(--terminal-bg) !important;
+    box-shadow: var(--terminal-glow-intense);
+    transform: translateY(-3px) scale(1.1);
+}
+
+/* Toggle switch */
+body.terminal-mode .mode-toggle {
+    border-left: 1px solid var(--terminal-text);
+}
+
+body.terminal-mode .toggle-label {
+    background-color: rgba(0, 255, 65, 0.1) !important;
+    color: var(--terminal-text) !important;
+    border: 1px solid var(--terminal-text);
+}
+
+body.terminal-mode .toggle-label:hover {
+    background-color: rgba(0, 255, 65, 0.2) !important;
+    box-shadow: var(--terminal-glow);
+}
+
+/* ===== SECTION HERO ===== */
+body.terminal-mode .textb {
+    color: var(--terminal-accent) !important;
+    text-shadow: var(--terminal-glow);
+    letter-spacing: 3px;
+}
+
+body.terminal-mode .typing-title {
+    text-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
+}
+
+body.terminal-mode .typing-title .name {
+    color: var(--terminal-text-alt) !important;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+body.terminal-mode .typed-text {
+    color: var(--terminal-text) !important;
+    text-shadow: var(--terminal-glow);
+}
+
+body.terminal-mode .soustitre {
+    color: var(--terminal-cyan) !important;
+    border-left: 3px solid var(--terminal-cyan);
+    padding-left: 15px;
+}
+
+body.terminal-mode .description {
+    color: var(--terminal-text) !important;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    border-radius: 5px;
+    border-left: 3px solid var(--terminal-text);
+}
+
+/* ===== BOUTONS TERMINAL ===== */
+body.terminal-mode .btn-primary {
+    background: linear-gradient(45deg, #000, var(--terminal-text)) !important;
+    color: #000 !important;
+    border: 2px solid var(--terminal-text) !important;
+    box-shadow: var(--terminal-glow-intense);
+    text-shadow: none;
+}
+
+body.terminal-mode .btn-primary:hover {
+    background: linear-gradient(45deg, var(--terminal-text), #000) !important;
+    color: var(--terminal-text) !important;
+    box-shadow: 0 0 30px var(--terminal-text);
+    transform: translateY(-3px);
+}
+
+body.terminal-mode .btn-secondary {
+    background: transparent !important;
+    color: var(--terminal-text) !important;
+    border: 2px solid var(--terminal-text) !important;
+    box-shadow: var(--terminal-glow);
+}
+
+body.terminal-mode .btn-secondary:hover {
+    background: var(--terminal-text) !important;
+    color: #000 !important;
+    box-shadow: var(--terminal-glow-intense);
+}
+
+body.terminal-mode .btn-tertiary {
+    background: transparent !important;
+    color: var(--terminal-accent) !important;
+    border: 2px solid var(--terminal-accent) !important;
+    box-shadow: var(--terminal-glow);
+}
+
+body.terminal-mode .btn-tertiary:hover {
+    background: var(--terminal-accent) !important;
+    color: #000 !important;
+    box-shadow: 0 0 30px var(--terminal-accent);
+}
+
+/* ===== STATISTIQUES ===== */
+body.terminal-mode .stat-item {
+    border: 1px solid rgba(0, 255, 65, 0.3);
+    background: rgba(0, 0, 0, 0.3);
+    padding: 15px;
+    border-radius: 5px;
+}
+
+body.terminal-mode .stat-number {
+    color: var(--terminal-accent) !important;
+    text-shadow: var(--terminal-glow);
+    font-size: 2.8rem;
+}
+
+body.terminal-mode .stat-label {
+    color: var(--terminal-text) !important;
+    letter-spacing: 2px;
+}
+
+/* ===== SKILL TAGS ===== */
+body.terminal-mode .skill-tag {
+    background: rgba(0, 255, 65, 0.1) !important;
+    border: 1px solid var(--terminal-text) !important;
+    color: var(--terminal-text) !important;
+    text-shadow: var(--terminal-glow);
+}
+
+body.terminal-mode .skill-tag:hover {
+    background: var(--terminal-text) !important;
+    color: #000 !important;
+    transform: translateY(-2px);
+}
+
+/* ===== IMAGE CONTAINER ===== */
+body.terminal-mode .image-wrapper {
+    border: 3px solid var(--terminal-text) !important;
+    box-shadow: 
+        0 0 30px var(--terminal-text),
+        inset 0 0 30px rgba(0, 255, 65, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+body.terminal-mode .profile-img {
+    filter: sepia(100%) hue-rotate(90deg) saturate(300%);
+    opacity: 0.9;
+}
+
+body.terminal-mode .image-overlay {
+    background: linear-gradient(
+        45deg,
+        transparent,
+        rgba(0, 255, 65, 0.1),
+        transparent
+    );
+}
+
+body.terminal-mode .scan-effect {
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--terminal-accent),
+        transparent
+    );
+    animation: terminalScanLine 3s linear infinite;
+    height: 3px;
+}
+
+@keyframes terminalScanLine {
+    0% { top: 0; }
+    100% { top: 100%; }
+}
+
+/* ===== SKILL BADGES ===== */
+body.terminal-mode .skill-badge {
+    background: rgba(0, 0, 0, 0.9) !important;
+    border: 2px solid currentColor !important;
+    box-shadow: var(--terminal-glow-intense);
+    animation: terminalFloat var(--terminal-float-speed) ease-in-out infinite;
+    z-index: 10;
+}
+
+body.terminal-mode .skill-badge.security {
+    color: var(--terminal-accent) !important;
+    border-color: var(--terminal-accent) !important;
+}
+
+body.terminal-mode .skill-badge.dev {
+    color: var(--terminal-yellow) !important;
+    border-color: var(--terminal-yellow) !important;
+}
+
+body.terminal-mode .skill-badge.network {
+    color: var(--terminal-blue) !important;
+    border-color: var(--terminal-blue) !important;
+}
+
+@keyframes terminalFloat {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(1deg); }
+}
+
+/* ===== CTF CARD ===== */
+body.terminal-mode .ctf-card {
+    background: rgba(0, 0, 0, 0.9) !important;
+    border: 2px solid var(--terminal-text) !important;
+    box-shadow: var(--terminal-glow-intense);
+}
+
+body.terminal-mode .ctf-header i {
+    color: var(--terminal-text) !important;
+    text-shadow: var(--terminal-glow);
+}
+
+body.terminal-mode .progress-bar {
+    background: rgba(0, 255, 65, 0.1) !important;
+    border: 1px solid var(--terminal-text);
+}
+
+body.terminal-mode .progress-fill {
+    background: linear-gradient(90deg, 
+        var(--terminal-text), 
+        var(--terminal-accent)) !important;
+    box-shadow: var(--terminal-glow);
+}
+
+/* ===== SCROLL INDICATOR ===== */
+body.terminal-mode .scroll-indicator {
+    color: var(--terminal-text) !important;
+    text-shadow: var(--terminal-glow);
+}
+
+body.terminal-mode .scroll-indicator i {
+    animation: terminalBounce 2s infinite;
+}
+
+@keyframes terminalBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(10px); }
+}
+
+/* ===== SECTION ABOUT ===== */
+body.terminal-mode .apropos {
+    background: linear-gradient(
+        135deg,
+        rgba(0, 10, 0, 0.8),
+        rgba(0, 0, 0, 0.9)
+    ) !important;
+    border-top: 2px solid var(--terminal-text);
+    border-bottom: 2px solid var(--terminal-text);
+}
+
+body.terminal-mode .section-subtitle {
+    color: var(--terminal-accent) !important;
+    text-shadow: var(--terminal-glow);
+}
+
+body.terminal-mode .section-title {
+    color: var(--terminal-text-alt) !important;
+    text-shadow: 0 0 10px var(--terminal-text);
+}
+
+body.terminal-mode .section-title::after {
+    background: var(--terminal-accent) !important;
+    box-shadow: var(--terminal-glow-intense);
+}
+
+/* Timeline */
+body.terminal-mode .timeline::before {
+    background: var(--terminal-text) !important;
+    box-shadow: var(--terminal-glow);
+}
+
+body.terminal-mode .timeline-item::before {
+    background: var(--terminal-accent) !important;
+    box-shadow: var(--terminal-glow-intense);
+}
+
+body.terminal-mode .timeline-date {
+    color: var(--terminal-cyan) !important;
+}
+
+body.terminal-mode .philosophy {
+    background: rgba(0, 255, 65, 0.05) !important;
+    border-left: 4px solid var(--terminal-text) !important;
+    border-right: 1px solid var(--terminal-text);
+    border-top: 1px solid var(--terminal-text);
+    border-bottom: 1px solid var(--terminal-text);
+}
+
+body.terminal-mode .philosophy h3 i {
+    color: var(--terminal-accent) !important;
+}
+
+/* Terminal Box */
+body.terminal-mode .terminal-box {
+    background: #000 !important;
+    border: 2px solid var(--terminal-text) !important;
+    box-shadow: 
+        0 0 40px var(--terminal-text),
+        inset 0 0 20px rgba(0, 255, 65, 0.1);
+}
+
+body.terminal-mode .terminal-header {
+    background: #111 !important;
+    border-bottom: 2px solid var(--terminal-text);
+}
+
+body.terminal-mode .terminal-title {
+    color: var(--terminal-text) !important;
+    text-shadow: var(--terminal-glow);
+}
+
+body.terminal-mode .terminal-body {
+    background: #000 !important;
+    color: var(--terminal-text) !important;
+    text-shadow: 0 0 5px currentColor;
+}
+
+body.terminal-mode .prompt {
+    color: var(--terminal-accent) !important;
+    font-weight: bold;
+}
+
+body.terminal-mode .output {
+    color: var(--terminal-text-alt) !important;
+}
+
+body.terminal-mode .cursor {
+    background: var(--terminal-text) !important;
+    animation: terminalBlink var(--terminal-blink-speed) infinite;
+}
+
+@keyframes terminalBlink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* ===== SECTION COMPÉTENCES ===== */
+body.terminal-mode .competences {
+    background: linear-gradient(
+        135deg,
+        rgba(0, 0, 10, 0.8),
+        rgba(0, 0, 0, 0.9)
+    ) !important;
+}
+
+body.terminal-mode .skill-category {
+    background: rgba(0, 0, 0, 0.7) !important;
+    border: 2px solid var(--terminal-text) !important;
+    box-shadow: var(--terminal-glow);
+    transition: all 0.3s ease;
+}
+
+body.terminal-mode .skill-category:hover {
+    border-color: var(--terminal-accent) !important;
+    box-shadow: 0 0 30px var(--terminal-accent);
+    transform: translateY(-10px) scale(1.02);
+}
+
+body.terminal-mode .category-icon {
+    text-shadow: var(--terminal-glow-intense);
+}
+
+body.terminal-mode .category-icon.offensive {
+    color: var(--terminal-accent) !important;
+}
+
+body.terminal-mode .category-icon.defensive {
+    color: var(--terminal-blue) !important;
+}
+
+body.terminal-mode .category-icon.dev {
+    color: var(--terminal-yellow) !important;
+}
+
+body.terminal-mode .category-badge.red {
+    background: rgba(255, 0, 60, 0.2) !important;
+    color: var(--terminal-accent) !important;
+    border: 1px solid var(--terminal-accent);
+}
+
+body.terminal-mode .category-badge.blue {
+    background: rgba(0, 136, 255, 0.2) !important;
+    color: var(--terminal-blue) !important;
+    border: 1px solid var(--terminal-blue);
+}
+
+body.terminal-mode .category-badge.yellow {
+    background: rgba(255, 255, 0, 0.2) !important;
+    color: var(--terminal-yellow) !important;
+    border: 1px solid var(--terminal-yellow);
+}
+
+body.terminal-mode .skill-name {
+    color: var(--terminal-text-alt) !important;
+}
+
+body.terminal-mode .skill-level {
+    color: var(--terminal-cyan) !important;
+    background: rgba(0, 255, 255, 0.1);
+    padding: 2px 8px;
+    border-radius: 3px;
+}
+
+body.terminal-mode .skill-bar {
+    background: rgba(0, 255, 65, 0.1) !important;
+    border: 1px solid var(--terminal-text);
+}
+
+body.terminal-mode .skill-progress {
+    background: linear-gradient(90deg, 
+        var(--terminal-text), 
+        var(--terminal-accent)) !important;
+    box-shadow: var(--terminal-glow);
+}
+
+/* Tools Section */
+body.terminal-mode .tools-section {
+    border-top: 2px solid var(--terminal-text);
+    padding-top: 40px;
+    margin-top: 40px;
+}
+
+body.terminal-mode .tools-title {
+    color: var(--terminal-text-alt) !important;
+    text-shadow: var(--terminal-glow);
+}
+
+body.terminal-mode .tool-item {
+    background: rgba(0, 0, 0, 0.5) !important;
+    border: 1px solid var(--terminal-text) !important;
+    color: var(--terminal-text) !important;
+    transition: all 0.3s ease;
+}
+
+body.terminal-mode .tool-item:hover {
+    background: var(--terminal-text) !important;
+    color: #000 !important;
+    box-shadow: var(--terminal-glow-intense);
+    transform: translateY(-5px) scale(1.1);
+}
+
+body.terminal-mode .tool-item i {
+    text-shadow: var(--terminal-glow);
+}
+
+/* ===== SECTION PROJETS ===== */
+body.terminal-mode .projets {
+    background: linear-gradient(
+        135deg,
+        rgba(10, 0, 0, 0.8),
+        rgba(0, 0, 0, 0.9)
+    ) !important;
+}
+
+body.terminal-mode .project-card {
+    background: rgba(0, 0, 0, 0.7) !important;
+    border: 2px solid var(--terminal-text) !important;
+    box-shadow: var(--terminal-glow);
+    transition: all 0.3s ease;
+}
+
+body.terminal-mode .project-card:hover {
+    border-color: var(--terminal-accent) !important;
+    box-shadow: 0 0 40px var(--terminal-accent);
+    transform: translateY(-10px);
+}
+
+body.terminal-mode .project-badge {
+    background: var(--terminal-accent) !important;
+    color: #000 !important;
+    font-weight: bold;
+    text-shadow: none;
+}
+
+body.terminal-mode .project-image img {
+    filter: grayscale(100%) brightness(0.8);
+    transition: filter 0.3s ease;
+}
+
+body.terminal-mode .project-card:hover .project-image img {
+    filter: grayscale(0%) brightness(1);
+}
+
+body.terminal-mode .project-title {
+    color: var(--terminal-text-alt) !important;
+    text-shadow: var(--terminal-glow);
+}
+
+body.terminal-mode .tech-tag {
+    background: rgba(0, 255, 65, 0.1) !important;
+    color: var(--terminal-text) !important;
+    border: 1px solid var(--terminal-text);
+}
+
+body.terminal-mode .project-link {
+    color: var(--terminal-cyan) !important;
+    text-shadow: var(--terminal-glow);
+}
+
+body.terminal-mode .project-link:hover {
+    color: var(--terminal-accent) !important;
+    text-shadow: var(--terminal-glow-intense);
+}
+
+/* ===== SECTION BLOG ===== */
+body.terminal-mode .blog {
+    background: linear-gradient(
+        135deg,
+        rgba(0, 10, 10, 0.8),
+        rgba(0, 0, 0, 0.9)
+    ) !important;
+}
+
+body.terminal-mode .blog-card {
+    background: rgba(0, 0, 0, 0.7) !important;
+    border: 2px solid var(--terminal-text) !important;
+    box-shadow: var(--terminal-glow);
+    transition: all 0.3s ease;
+}
+
+body.terminal-mode .blog-card:hover {
+    border-color: var(--terminal-accent) !important;
+    box-shadow: 0 0 30px var(--terminal-accent);
+    transform: translateY(-5px);
+}
+
+body.terminal-mode .blog-date {
+    color: var(--terminal-cyan) !important;
+}
+
+body.terminal-mode .blog-category {
+    background: rgba(255, 0, 60, 0.2) !important;
+    color: var(--terminal-accent) !important;
+    border: 1px solid var(--terminal-accent);
+}
+
+body.terminal-mode .blog-title {
+    color: var(--terminal-text-alt) !important;
+    text-shadow: var(--terminal-glow);
+}
+
+body.terminal-mode .read-more {
+    color: var(--terminal-text) !important;
+    text-shadow: var(--terminal-glow);
+}
+
+body.terminal-mode .read-more:hover {
+    color: var(--terminal-accent) !important;
+}
+
+/* Newsletter */
+body.terminal-mode .newsletter {
+    background: rgba(0, 255, 65, 0.05) !important;
+    border: 2px solid var(--terminal-text) !important;
+    box-shadow: var(--terminal-glow);
+}
+
+body.terminal-mode .newsletter-form input {
+    background: rgba(0, 0, 0, 0.8) !important;
+    border: 1px solid var(--terminal-text) !important;
+    color: var(--terminal-text) !important;
+}
+
+body.terminal-mode .newsletter-form input:focus {
+    border-color: var(--terminal-accent) !important;
+    box-shadow: 0 0 20px var(--terminal-accent);
+}
+
+/* ===== SECTION CONTACT ===== */
+body.terminal-mode .contact {
+    background: linear-gradient(
+        135deg,
+        rgba(10, 10, 0, 0.8),
+        rgba(0, 0, 0, 0.9)
+    ) !important;
+}
+
+body.terminal-mode .contact-item {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 15px;
+    border-radius: 5px;
+    border-left: 3px solid var(--terminal-text);
+}
+
+body.terminal-mode .contact-icon {
+    background: rgba(0, 255, 65, 0.1) !important;
+    border: 1px solid var(--terminal-text);
+}
+
+body.terminal-mode .contact-form-container {
+    background: rgba(0, 0, 0, 0.7) !important;
+    border: 2px solid var(--terminal-text) !important;
+    box-shadow: var(--terminal-glow-intense);
+}
+
+body.terminal-mode .form-group input,
+body.terminal-mode .form-group textarea {
+    background: rgba(0, 0, 0, 0.8) !important;
+    border: 1px solid var(--terminal-text) !important;
+    color: var(--terminal-text) !important;
+    font-family: 'Courier New', monospace !important;
+}
+
+body.terminal-mode .form-group input:focus,
+body.terminal-mode .form-group textarea:focus {
+    border-color: var(--terminal-accent) !important;
+    box-shadow: 0 0 20px var(--terminal-accent);
+    background: rgba(0, 0, 0, 0.9) !important;
+}
+
+body.terminal-mode .form-check input[type="checkbox"] {
+    accent-color: var(--terminal-text);
+}
+
+/* ===== FOOTER ===== */
+body.terminal-mode .footer {
+    background: #000 !important;
+    border-top: 2px solid var(--terminal-text);
+    box-shadow: 0 -5px 20px rgba(0, 255, 65, 0.2);
+}
+
+body.terminal-mode .footer-logo {
+    text-shadow: var(--terminal-glow);
+}
+
+body.terminal-mode .footer-links a {
+    color: var(--terminal-text) !important;
+    transition: all 0.3s ease;
+}
+
+body.terminal-mode .footer-links a:hover {
+    color: var(--terminal-accent) !important;
+    padding-left: 10px;
+}
+
+body.terminal-mode .social-links a {
+    background: rgba(0, 255, 65, 0.1) !important;
+    border: 1px solid var(--terminal-text);
+    color: var(--terminal-text) !important;
+}
+
+body.terminal-mode .social-links a:hover {
+    background: var(--terminal-text) !important;
+    color: #000 !important;
+    box-shadow: var(--terminal-glow-intense);
+}
+
+body.terminal-mode .footer-form input {
+    background: rgba(0, 0, 0, 0.8) !important;
+    border: 1px solid var(--terminal-text) !important;
+    color: var(--terminal-text) !important;
+}
+
+body.terminal-mode .footer-bottom {
+    border-top: 1px solid rgba(0, 255, 65, 0.3);
+}
+
+body.terminal-mode .footer-security {
+    color: var(--terminal-text) !important;
+    text-shadow: var(--terminal-glow);
+}
+
+body.terminal-mode .footer-security i {
+    animation: terminalPulse 2s infinite;
+}
+
+@keyframes terminalPulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+/* ===== CURSOR PERSONNALISÉ ===== */
+body.terminal-mode {
+    cursor: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSIjMDBmZjQxIj48cGF0aCBkPSJNMTIgMkM2LjQ4IDIgMiA2LjQ4IDIgMTJzNC40OCAxMCAxMCAxMCAxMC00LjQ4IDEwLTEwUzE3LjUyIDIgMTIgMnptMCAxOGMtNC40MSAwLTgtMy41OS04LThzMy41OS04IDgtOCA4IDMuNTkgOCA4LTMuNTkgOC04IDh6Ii8+PC9zdmc+'), auto;
+}
+
+/* ===== SCROLLBAR TERMINAL ===== */
+body.terminal-mode::-webkit-scrollbar {
+    width: 12px;
+    background: #000;
+}
+
+body.terminal-mode::-webkit-scrollbar-track {
+    background: rgba(0, 255, 65, 0.1);
+    border: 1px solid var(--terminal-text);
+}
+
+body.terminal-mode::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, 
+        var(--terminal-text), 
+        var(--terminal-accent));
+    border: 1px solid #000;
+    border-radius: 0;
+}
+
+body.terminal-mode::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(45deg, 
+        var(--terminal-accent), 
+        var(--terminal-text));
+    box-shadow: var(--terminal-glow);
+}
+
+/* ===== SELECTION TEXT ===== */
+body.terminal-mode ::selection {
+    background-color: var(--terminal-text);
+    color: #000;
+    text-shadow: none;
+}
+
+body.terminal-mode ::-moz-selection {
+    background-color: var(--terminal-text);
+    color: #000;
+    text-shadow: none;
+}
+
+/* ===== ANIMATIONS SPÉCIFIQUES ===== */
+
+/* Effet de glitch sur les titres */
+.terminal-glitch {
+    position: relative;
+    animation: terminalGlitch 5s infinite;
+}
+
+@keyframes terminalGlitch {
+    0% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(-2px, -2px); }
+    60% { transform: translate(2px, 2px); }
+    80% { transform: translate(2px, -2px); }
+    100% { transform: translate(0); }
+}
+
+/* Effet de texte qui s'écrit */
+.terminal-typewriter {
+    overflow: hidden;
+    border-right: 3px solid var(--terminal-text);
+    white-space: nowrap;
+    animation: 
+        terminalTyping 3.5s steps(40, end),
+        terminalBlink 0.75s step-end infinite;
+}
+
+@keyframes terminalTyping {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+/* Effet de particules binaires */
+.terminal-binary-rain {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9996;
+    opacity: 0.3;
+}
+
+.binary-char {
+    position: absolute;
+    color: var(--terminal-text);
+    font-size: 14px;
+    opacity: 0;
+    animation: binaryFall linear infinite;
+}
+
+@keyframes binaryFall {
+    0% {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+}
+
+/* ===== RESPONSIVE TERMINAL MODE ===== */
+@media (max-width: 768px) {
+    body.terminal-mode .menu {
+        background: #000 !important;
+        border: 2px solid var(--terminal-text);
+        box-shadow: var(--terminal-glow-intense);
+    }
+    
+    body.terminal-mode .skill-badge {
+        position: relative !important;
+        margin: 10px auto;
+        left: auto !important;
+        right: auto !important;
+        top: auto !important;
+        bottom: auto !important;
+        width: 90%;
+        text-align: center;
+    }
+    
+    body.terminal-mode .hero-container {
+        gap: 20px;
+    }
+    
+    body.terminal-mode .section-title {
+        font-size: 1.8rem;
+    }
+    
+    body.terminal-mode .terminal-box {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    body.terminal-mode .logo {
+        font-size: 1.5rem;
+    }
+    
+    body.terminal-mode .typing-title {
+        font-size: 1.8rem;
+    }
+    
+    body.terminal-mode .btn-group {
+        flex-direction: column;
+    }
+    
+    body.terminal-mode .stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    body.terminal-mode .skill-badge {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+}
+
+/* ===== CLASSES UTILITAIRES ===== */
+
+/* Texte clignotant */
+.terminal-blink {
+    animation: terminalBlink var(--terminal-blink-speed) infinite;
+}
+
+/* Texte avec glow */
+.terminal-glow {
+    text-shadow: var(--terminal-glow);
+}
+
+/* Texte avec glow intense */
+.terminal-glow-intense {
+    text-shadow: var(--terminal-glow-intense);
+}
+
+/* Bordure terminal */
+.terminal-border {
+    border: var(--terminal-border);
+    box-shadow: var(--terminal-glow);
+}
+
+/* Fond terminal */
+.terminal-bg {
+    background: rgba(0, 0, 0, 0.8);
+    border: 1px solid var(--terminal-text);
+}
+
+/* Message d'état terminal */
+.terminal-status {
+    padding: 10px 15px;
+    background: rgba(0, 0, 0, 0.9);
+    border: 2px solid var(--terminal-text);
+    color: var(--terminal-text);
+    font-family: 'Courier New', monospace;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 10000;
+    animation: terminalStatusPulse 2s infinite;
+}
+
+@keyframes terminalStatusPulse {
+    0%, 100% { 
+        border-color: var(--terminal-text);
+        box-shadow: 0 0 10px var(--terminal-text);
+    }
+    50% { 
+        border-color: var(--terminal-accent);
+        box-shadow: 0 0 20px var(--terminal-accent);
+    }
+}
+
+/* ===== TRANSITIONS ===== */
+body.terminal-mode * {
+    transition: 
+        color 0.3s ease,
+        background-color 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease,
+        transform 0.3s ease;
+}
+
+/* ===== IMPRESSION TERMINAL ===== */
+@media print {
+    body.terminal-mode {
+        background: white !important;
+        color: black !important;
+        font-family: serif !important;
+    }
+    
+    body.terminal-mode .entete,
+    body.terminal-mode .scroll-indicator,
+    body.terminal-mode .mode-toggle,
+    body.terminal-mode .social-links,
+    body.terminal-mode .btn-group {
+        display: none !important;
+    }
+    
+    body.terminal-mode .terminal-box {
+        border: 1px solid #000 !important;
+        box-shadow: none !important;
+    }
+}
