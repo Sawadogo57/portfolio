@@ -12,11 +12,7 @@
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     
     <!-- Font Awesome -->
-<link rel="stylesheet" 
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" 
-      integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" 
-      crossorigin="anonymous" 
-      referrerpolicy="no-referrer" />    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">    
     <!-- Typed.js CDN -->
     <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
     
@@ -25,12 +21,18 @@
     
     <!-- CSS pour le mode Terminal -->
     <link rel="stylesheet" href="terminal.css" id="terminalStyle" disabled>
-    <meta http-equiv="Content-Security-Policy" 
-      content="default-src 'self'; 
-               script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; 
-               style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://use.fontawesome.com; 
-               font-src 'self' https://fonts.gstatic.com https://use.fontawesome.com; 
-               img-src 'self' data: https://images.unsplash.com;">
+    <meta http-equiv="Content-Security-Policy"
+content="
+default-src 'self';
+script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://unpkg.com;
+style-src 'self' 'unsafe-inline'
+           https://fonts.googleapis.com
+           https://cdnjs.cloudflare.com;
+font-src 'self'
+         https://fonts.gstatic.com
+         https://cdnjs.cloudflare.com;
+img-src 'self' data: https://images.unsplash.com;
+">
 </head>
 <body>
     <!-- Navigation Principale -->
