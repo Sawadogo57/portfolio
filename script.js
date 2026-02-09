@@ -75,7 +75,7 @@ function initTypedJS() {
         strings: [
             '<span class="cyber-text">Etudiant</span>',
             '<span class="cyber-text">Développeur Sécurité</span>',
-            '<span class="cyber-text">Entrepreneur</span>',
+            
             
         ],
         typeSpeed: 60,
