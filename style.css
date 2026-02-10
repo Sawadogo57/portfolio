@@ -2268,3 +2268,162 @@ body.terminal-mode .top-image {
     color: var(--accent-color, #64ffda);
     border-bottom-style: solid;
 }
+
+/* ===== CORRECTIONS POUR DÉFILEMENT HORIZONTAL MOBILE ===== */
+@media (max-width: 768px) {
+    /* Fix général pour le body */
+    body {
+        width: 100%;
+        overflow-x: hidden;
+        position: relative;
+    }
+    
+    /* Correction du conteneur principal */
+    .container, 
+    .section-container,
+    .nav-container {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        padding: 0 var(--spacing-sm);
+    }
+    
+    /* Correction de la navigation */
+    .entete {
+        width: 100%;
+        max-width: 100%;
+        padding: var(--spacing-sm) 0;
+    }
+    
+    /* Correction de la section hero */
+    .hero-container {
+        width: 100%;
+        grid-template-columns: 1fr;
+        padding: 0 var(--spacing-sm);
+    }
+    
+    /* Correction des images */
+    .image-wrapper,
+    .profile-img,
+    .top-image-wrapper {
+        max-width: 100%;
+        width: 100%;
+        height: auto;
+    }
+    
+    .image-wrapper {
+        max-width: 300px;
+        margin: 0 auto;
+    }
+    
+    /* Correction des badges de compétences */
+    .skill-badge {
+        position: relative !important;
+        margin: 10px auto;
+        left: auto !important;
+        right: auto !important;
+        width: 90%;
+        max-width: 200px;
+    }
+    
+    /* Correction des cartes */
+    .project-card,
+    .blog-card,
+    .skill-category {
+        width: 100%;
+        margin: 0 0 var(--spacing-md) 0;
+    }
+    
+    /* Correction des stats */
+    .stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-sm);
+        width: 100%;
+    }
+    
+    /* Correction du formulaire */
+    .contact-form-container {
+        width: 100%;
+        padding: var(--spacing-md);
+    }
+    
+    .form-group input,
+    .form-group textarea {
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    /* Correction du footer */
+    .footer-container {
+        grid-template-columns: 1fr;
+        padding: 0 var(--spacing-sm);
+    }
+    
+    /* Assurez-vous que tous les éléments restent dans l'écran */
+    * {
+        box-sizing: border-box;
+    }
+    
+    /* Correction spécifique pour le texte */
+    .typing-title {
+        font-size: 2rem;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+    
+    .description {
+        font-size: 1rem;
+        padding: 0 var(--spacing-xs);
+    }
+    
+    /* Empêcher le zoom sur les inputs sur mobile iOS */
+    @supports (-webkit-touch-callout: none) {
+        input,
+        textarea,
+        select {
+            font-size: 16px !important; /* Empêche le zoom automatique d'iOS */
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    
+    .section-container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    
+    .hero-container {
+        padding: 0;
+    }
+    
+    .btn-group {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .btn-primary,
+    .btn-secondary,
+    .btn-tertiary {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    
+    .stats {
+        grid-template-columns: 1fr;
+    }
+    
+    .quick-skills {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .skill-tag {
+        font-size: 0.8rem;
+        padding: 5px 10px;
+    }
+}
